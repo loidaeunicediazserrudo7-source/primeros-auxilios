@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Primeros Auxilios</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f8f9;
+    color: #333;
+}
+
+header {
+    background: #d62828;
+    color: white;
+    text-align: center;
+    padding: 25px 12px;
+}
+
+header h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+nav {
+    background: #333;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav button {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 14px 12px;
+    font-size: 15px;
+    cursor: pointer;
+    flex: 1 1 110px;
+}
+
+nav button:hover {
+    background: #d62828;
+}
+
+.seccion {
+    display: none;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 22px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+}
+
+.seccion.activa {
+    display: block;
+}
+
+h2 {
+    color: #d62828;
+    margin: 15px 0;
+    font-size: 26px;
+}
+
+h3 {
+    margin: 15px 0 8px;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+ul, ol {
+    margin-left: 23px;
+    line-height: 1.8;
+}
+
+.inicio {
+    text-align: center;
+}
+
+.icono {
+    font-size: 65px;
+}
+
+.tarjetas {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+    width: 100%;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tarjeta {
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.verde {
+    background: #2a9d8f;
+}
+
+.naranja {
+    background: #e88735;
+}
+
+.rojo {
+    background: #c1121f;
+}
+
+.boton-pasos, .boton-volver {
+    border: none;
+    padding: 13px 18px;
+    margin: 10px 5px 15px 0;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.boton-pasos {
+    background: #d62828;
+    color: white;
+}
+
+.boton-pasos:hover {
+    background: #a4161a;
+}
+
+.boton-volver {
+    background: #333;
+    color: white;
+}
+
+.paso {
+    background: #f4f8f9;
+    border-left: 5px solid #d62828;
+    padding: 15px;
+    margin: 13px 0;
+    border-radius: 7px;
+}
+
+.paso h3 {
+    color: #d62828;
+    margin-top: 0;
+}
+
+.importante {
+    background: #fff3cd;
+    border-left: 5px solid #ffc107;
+    padding: 15px;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.imagen-pasos {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 18px;
+    margin-top: 30px;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 26px;
+    }
+
+    .seccion {
+        margin: 12px;
+        padding: 17px;
+    }
+
+    nav button {
+        flex: 1 1 30%;
+        padding: 12px 5px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🩺 Primeros Auxilios</h1>
+    <p>Aprende qué hacer ante diferentes tipos de lesiones</p>
+</header>
+
+<nav>
+    <button type="button" onclick="mostrarSeccion('inicio')">🏠 Inicio</button>
+    
+</nav>
+
+<!-- INICIO -->
+
+<section id="inicio" class="seccion activa inicio">
+
+    <div class="tarjetas">
+
+   <button type="button" onclick="mostrarSeccion('leves')">🩹 Leves</button>
+    <button type="button" onclick="mostrarSeccion('graves')">🩸 Graves</button>
+    <button type="button" onclick="mostrarSeccion('muy-graves')">🚑 Muy graves</button>
+    <button type="button" onclick="mostrarSeccion('emergencias')">📞 Emergencias</button>
+    <button type="button" onclick="mostrarSeccion('otros')">🆘 Otros</button>
+    <button type="button" onclick="mostrarSeccion('insumos y herramientas')">🩹🧰 Insumos y herramientas</button>
+    </div>
+
+    <div class="importante">
+        <strong>⚠️ Importante:</strong>
+        Esta página es educativa. Ante una emergencia real,
+        solicita ayuda médica y no te pongas en peligro.
+    </div>
+
+</section>
+
+<!-- LESIONES LEVES -->
+
+<section id="leves" class="seccion">
+
+    <h2>🩹 Lesiones leves</h2>
+
+    <h3>Heridas leves</h3>
+    <p>Cortes pequeños y raspones superficiales.</p>
+    <button class="boton-pasos" onclick="mostrarPasos('herida-leve')">
+        Cómo curar una herida leve
+    </button>
+
+    <h3>Quemaduras de primer grado</h3>
+    <p>Producen enrojecimiento y dolor en la piel.</p>
+    <button class="boton-pasos" onclick="mostrarPasos('quemadura-leve')">
+        Cómo actuar ante una quemadura
+    </button>
+
+    <h3>Golpes leves</h3>
+    <p>Pueden causar dolor, enrojecimiento o pequeños moretones.</p>
+    <button class="boton-pasos" onclick="mostrarPasos('golpe-leve')">
+        Cómo actuar ante un golpe
+    </button>
+
+</section>
+
+<!-- LESIONES GRAVES -->
+
+<section id="graves" class="seccion">
+
+    <h2>🩸 Lesiones graves</h2>
+
+    <h3>Heridas graves</h3>
+    <p>Heridas profundas o con sangrado considerable.</p>
+    <button class="boton-pasos" onclick="mostrarPasos('herida-grave')">
+        Qué hacer ante una herida grave
+    </button>
+
+    <h3>Quemaduras de segundo grado</h3>
+    <p>Pueden producir ampollas, dolor intenso e hinchazón.</p>
+    <button class="boton-pasos" onclick="mostrarPasos('quemadura-grave')">
+        Qué hacer ante una quemadura
+    </button>
+
+    <h3>Golpes graves</h3>
+    <p>Pueden causar lesiones importantes en huesos o tejidos.</p>
+    <button class="boton-pasos" onclick="mostrarPasos('golpe-grave')">
+        Qué hacer ante un golpe grave
+    </button>
+
+</section>
+
+<!-- LESIONES MUY GRAVES -->
+
+<section id="muy-graves" class="seccion">
+
+    <h2>🚑 Lesiones muy graves</h2>
+
+    <h3>Heridas con sangrado abundante</h3>
+    <button class="boton-pasos" onclick="mostrarPasos('herida-muy-grave')">
+        Qué hacer ante una herida muy grave
+    </button>
+
+    <h3>Quemaduras de tercer grado</h3>
+    <p>Son lesiones profundas que necesitan atención médica inmediata.</p>
+    <button class="boton-pasos" onclick="mostrarPasos('quemadura-muy-grave')">
+        Qué hacer ante una quemadura muy grave
+    </button>
+
+    <h3>Golpes muy graves</h3>
+    <p>Pueden afectar la cabeza, la columna o los órganos internos.</p>
+    <button class="boton-pasos" onclick="mostrarPasos('golpe-muy-grave')">
+        Qué hacer ante un golpe muy grave
+    </button>
+
+</section>
+
+<!-- EMERGENCIAS -->
+
+<section id="emergencias" class="seccion">
+
+    <h2>📞 Números de emergencia en Bolivia</h2>
+
+    <ul>
+            <li>🚔 110 — Policía: delitos, peligro o situaciones de seguridad.</li>
+            <li>🚒 119 — Bomberos: incendios, rescates y accidentes.</li>
+            <li> 🆘 911 — Emergencias: número integral de seguridad y emergencias; su disponibilidad puede variar según la zona. </li>
+           </ul> 
+    <div class="importante">
+        Si no consigues comunicarte con un servicio de emergencia,
+        pide ayuda a un adulto y acude al centro de salud más cercano.
+        Confirma los números disponibles en tu localidad.
+    </div>
+
+</section>
+
+<!-- OTROS -->
+
+<section id="otros" class="seccion">
+
+    <h2>🆘 Otras emergencias</h2>
+
+    <h3>Desmayos</h3>
+    <p>La persona pierde el conocimiento temporalmente.</p>
+    <button class="boton-pasos" onclick="mostrarPasos('desmayo')">
+        Qué hacer ante un desmayo
+    </button>
+
+    <h3>Atragantamientos</h3>
+    <p>La persona puede tener dificultad para respirar por una obstrucción.</p>
+    <button class="boton-pasos" onclick="mostrarPasos('atragantamiento')">
+        Qué hacer ante un atragantamiento
+    </button>
+
+</section>
+<!-- INSUMOS Y HERRAMIENTAS -->
+
+<section id="insumos y herramientas" class="seccion">
+    <h2>🩹🧰 Insumos y herramientas</h2>
+    <ul>
+<li>apósitos para heridas </li>
+<li>curitas</li>
+    <li>mascarillas</li>
+     <li>guantes desechables</li>
+ <li>Agua limpia </li>
+ <li>esparadrapo médico</li>
+ <li>manta térmica</li>
+ <li>botiquín de primeros auxilios</li>
+ </ul>
+ </section>
+<!-- CONTENIDO DE LOS PASOS -->
+
+<section id="pasos" class="seccion">
+
+    <h2 id="titulo-pasos">Cómo actuar paso a paso</h2>
+
+    <div id="contenido-pasos"></div>
+
+    <button class="boton-volver" onclick="volverAnterior()">
+        ← Volver
+    </button>
+
+    <button class="boton-volver" onclick="mostrarSeccion('inicio')">
+        🏠 Inicio
+    </button>
+    <script>
+
+var seccionAnterior = 'inicio';
+
+function mostrarSeccion(id) {
+
+    var secciones = document.querySelectorAll('.seccion');
+
+    secciones.forEach(function(seccion) {
+        seccion.classList.remove('activa');
+    });
+
+    var destino = document.getElementById(id);
+
+    if (destino) {
+        destino.classList.add('activa');
+        window.scrollTo(0, 0);
+    } else {
+        alert('No se encontró la sección: ' + id);
+    }
+}
+
+function mostrarPasos(tipo) {
+
+    var actual = document.querySelector('.seccion.activa');
+
+    seccionAnterior = actual ? actual.id : 'inicio';
+
+    var titulo = document.getElementById('titulo-pasos');
+    var contenido = document.getElementById('contenido-pasos');
+
+    var datos = {
+
+        'herida-leve': {
+            titulo: '🩹 Cómo curar una herida leve',
+            pasos: [
+                ['1. Lávate las manos', 'Usa agua y jabón antes de atender la herida.'],
+                ['2. Limpia la herida', 'Enjuaga suavemente con agua limpia.'],
+                ['3. Controla el sangrado', 'Si sangra, aplica presión continua con una gasa o tela limpia.'],
+                ['4. Cubre la herida', 'Utiliza un apósito o gasa limpia.'],
+                ['5. Observa la evolución', 'Busca atención médica si aumenta el enrojecimiento, aparece pus o tienes fiebre.']
+            ],
+            imagen: 'herida leve.jpg'
+        },
+
+        'quemadura-leve': {
+            titulo: '💧 Cómo actuar ante una quemadura leve',
+            pasos: [
+                ['1. Aléjate del calor', 'Hazlo sin ponerte en peligro.'],
+                ['2. Enfría la quemadura', 'Coloca la zona bajo agua corriente fresca durante 20 minutos. No uses hielo.'],
+                ['3. Retira accesorios cercanos', 'Quita anillos o pulseras antes de que aumente la hinchazón, si no están pegados.'],
+                ['4. Cubre la zona', 'Utiliza un apósito estéril no adherente, sin apretar.'],
+                ['5. Evita remedios caseros', 'No uses pasta dental, aceites ni mantequilla. Busca atención médica si la quemadura es extensa o afecta zonas delicadas.']
+            ],
+            imagen: 'quemadura primer grado.jpg'
+        },
+
+        'golpe-leve': {
+            titulo: '🧊 Cómo actuar ante un golpe leve',
+            pasos: [
+                ['1. Descansa', 'Detén la actividad y evita forzar la zona.'],
+                ['2. Aplica frío protegido', 'Usa una compresa fría envuelta en tela durante 15 a 20 minutos. No pongas hielo directamente sobre la piel.'],
+                ['3. Eleva la zona si es cómodo', 'Hazlo si se trata de un brazo o una pierna y no sospechas fractura.'],
+                ['4. Observa la lesión', 'Si aumenta el dolor o la hinchazón, busca atención médica.'],
+                ['5. Vigila los golpes en la cabeza', 'Vómitos, confusión o pérdida de conocimiento requieren atención urgente.']
+            ],
+            imagen: 'golpe leve.jpg'
+        },
+
+        'herida-grave': {
+            titulo: '🚑 Qué hacer ante una herida grave',
+            pasos: [
+                ['1. Solicita ayuda médica', 'Pide a un adulto que llame al servicio de emergencias local.'],
+                ['2. Controla el sangrado', 'Aplica presión firme y continua con una gasa o tela limpia, si es seguro.'],
+                ['3. No retires objetos clavados', 'Presiona alrededor del objeto, no encima.'],
+                ['4. Si la gasa se empapa', 'No retires la primera capa. Coloca otra encima y sigue presionando.'],
+                ['5. Mantén a la persona quieta', 'Abrígala y espera la ayuda profesional.']
+            ],
+            imagen: 'herida grave.jpg'
+        },
+
+        'quemadura-grave': {
+            titulo: '🚑 Qué hacer ante una quemadura grave',
+            pasos: [
+                ['1. Pide ayuda urgente', 'Las quemaduras extensas, profundas o con ampollas importantes necesitan valoración médica.'],
+                ['2. Enfría la zona', 'Usa agua corriente fresca durante 20 minutos si es posible, sin retrasar la atención. Evita enfriar demasiado a la persona.'],
+                ['3. No retires ropa pegada', 'Quita solo ropa o accesorios que no estén adheridos a la piel.'],
+                ['4. Cubre sin apretar', 'Utiliza un apósito estéril no adherente o una tela limpia.'],
+                ['5. No apliques productos', 'No uses hielo, cremas, aceites ni remedios caseros, y no revientes ampollas.']
+            ],
+            imagen: 'quemadura segundo grado.jpg'
+        },
+
+        'golpe-grave': {
+            titulo: '🚑 Qué hacer ante un golpe grave',
+            pasos: [
+                ['1. Llama a emergencias', 'Marca al numero de emrgencias urgentemente'],
+                ['2. Evita mover a la persona (Regla de oro)', 'Especialmente si sospechas una lesión de cabeza, cuello, espalda o una fractura.'],
+                ['3. Evaluar la conciencia y respiración ', 'Hablale para ver si reponde, observa su pecho y confirma ue respira.'],
+                ['4. Atender la zona afectada', 'Si hay una herida con sangrado coloca una gasa limpia, si hay un golpe cerrado, inflamación o hematoma coloca una comporesa fría embuelta en un paño.'],
+                ['5. No des comida ni bebida', 'Quédate con la persona hasta que llegue la ayuda.']
+            ],
+            imagen: 'golpe grave.jpg'
+        },
+
+        'herida-muy-grave': {
+            titulo: '🚨 Qué hacer ante un sangrado abundante',
+            pasos: [
+                ['1. Llama a emergencias', 'Pide ayuda médica inmediatamente.'],
+                ['2. Deten el sangrado(Presiona)', 'Aplica presión firme y continua con una gasa o tela limpia, si se empapa pon otro paño encima.'],
+                ['3. No retires objetos clavados', 'Presiona alrededor del objeto.'],
+                ['4. Cuida a la persona ', 'No la dejes sola ni le des comida o bebida. Acuestala boca arriba y cublrela con una manta']
+            ],
+            imagen: 'herida muy grave.jpg'
+        },
+
+        'quemadura-muy-grave': {
+            titulo: '🚨 Qué hacer ante una quemadura muy grave',
+            pasos: [
+                ['1. Llama inmediatamente ', 'Las quemaduras profundas o extensas son una emergencia.Pide ayuda médica inmediatamentre.'],
+                ['2. Aléjate del peligro', 'No te expongas a fuego, electricidad o sustancias peligrosas, que causo la quemadura.'],
+                ['3. Quita ropa sin pegar', 'Retira anillos , reloj y ropa suelta, pero si esta pegada a la piel nunca la retires '],
+                ['4. Cubre flojamente', 'Tápala suavemente con gasa o paño limpio y seco.'],
+                ['5. Prohibido remedios caseros ', 'No apliques nada de aceites , pastas ni cremas. Si es una zona pequeña echa agua tibia por 10-20 min.']
+            ],
+            imagen: 'quemadura muy grave.jpg'
+        },
+
+        'golpe-muy-grave': {
+            titulo: '🚨 Qué hacer ante un golpe muy grave',
+            pasos: [
+                ['1. Llama a emergencias', 'Marca al numero de emrgencias urgentemente'],
+                ['2. Evita mover a la persona (Regla de oro)', 'Especialmente si sospechas una lesión de cabeza, cuello, espalda o una fractura.'],
+                ['3. Evaluar la conciencia y respiración ', 'Hablale para ver si reponde, observa su pecho y confirma ue respira.'],
+                ['4. Atender la zona afectada', 'Si hay una herida con sangrado coloca una gasa limpia, si hay un golpe cerrado, inflamación o hematoma coloca una comporesa fría embuelta en un paño.'],
+                ['5. No des comida ni bebida', 'Quédate con la persona hasta que llegue la ayuda.']
+            ],
+            imagen: 'golpe grave.jpg'
+        },
+
+        'desmayo': {
+            titulo: '🆘 Qué hacer ante un desmayo',
+            pasos: [
+                ['1. Asegura el lugar', 'Comprueba que la persona este en un lugar seguro .'],
+                ['2. Revisa si responde', 'Llama a emergencias si no responde.'],
+                ['3. Recuesta a la persona', 'Si repira normalmete y si no hay una lesión, acuestala boca arribaa y eleva ligeramente sus piernas..'],
+                ['4. Afloja ropa ajustada ', 'Afloja ropa ajustaa al rededor del cuello para facilitar la comodidad.'],
+                ['5. Importante', 'No lo hagas levantarse de inmediat, no le des agua ni comida,hasta que se recupere.']
+                ['6. Si no despierta puedes hacer rcp'] 
+            ],
+            imagen: 'desmayo.jpg'
+        },
+
+        'atragantamiento': {
+            titulo: '🆘 Qué hacer ante un atragantamiento',
+            pasos: [
+                ['1. Comprueba si respira', 'Preguntale si puede respirar y si pueede toser con fuerza animalo a seguir tosiendo .'],
+                ['2. Inclina a la persona hacia adelante ', ' si está consiente , inclina hacia adelante y dale 5 firmes entrre los omoplatos c0on la base de la mano.'],
+                ['3. Realiza compresión abdominal', 'Si os golpes no funcionan reliza 5 compresiones abdominales( maniobra de Heimlich).'],
+                ['4. Si pierde el conocimiento', 'Bajalo con cuidado al suelo llama a emergencias y realiza RCP.'],
+                ['5. No introduzcas los dedos a ciegas', 'Retira un objeto de la boca únicamente si está claramente visible y es fácil alcanzarlo.'],
+                ['6 Si no estas seguro', 'Si no estas seguro de hacer las maniobras llama a urgencias inmediatamente.']
+            ],
+            imagenes: [
+                'maniobra de heimlich.jpg',
+                'adultos y bebes.jpg',
+                'rcp.jpg'
+            ]
+        }
+    };
+
+    var item = datos[tipo];
+
+    if (!item) {
+        titulo.textContent = 'Información no disponible';
+        contenido.innerHTML = '<p>Esta opción todavía no tiene instrucciones.</p>';
+    } else {
+        titulo.textContent = item.titulo;
+
+        var html = '';
+
+        item.pasos.forEach(function(paso) {
+            html += '<div class="paso">';
+            html += '<h3>' + paso[0] + '</h3>';
+            html += '<p>' + paso[1] + '</p>';
+            html += '</div>';
+        });
+
+        if (item.imagen) {
+            html += '<img class="imagen-pasos" src="' + item.imagen +
+                    '" alt="Ilustración de primeros auxilios" ' +
+                    'onerror="this.style.display=\'none\'">';
+        }
+
+        if (item.imagenes) {
+            item.imagenes.forEach(function(nombreImagen) {
+                html += '<img class="imagen-pasos" src="' + nombreImagen +
+                        '" alt="Ilustración de primeros auxilios" ' +
+                        'onerror="this.style.display=\'none\'">';
+            });
+        }
+
+        html += '<div class="importante"><strong>Importante:</strong> ' +
+                'Esta guía es educativa y no sustituye la atención de profesionales de salud.</div>';
+
+        contenido.innerHTML = html;
+    }
+
+    mostrarSeccion('pasos');
+}
+
+function volverAnterior() {
+    mostrarSeccion(
+        seccionAnterior && seccionAnterior !== 'pasos'
+        ? seccionAnterior
+        : 'inicio'
+    );
+}
+
+</script>
+
